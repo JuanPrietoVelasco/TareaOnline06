@@ -39,7 +39,7 @@ public final class Familiar extends Turismo{
         }else
             sillaBebe="NO";
         
-        return super.toString() + " Número de plazas: " + numPlazas + " Silla de bebe: " + sillaBebe; 
+        return super.toString() + "\t\tNúmero de plazas: " + numPlazas + "\t\tSilla de bebe: " + sillaBebe; 
     }
     
     

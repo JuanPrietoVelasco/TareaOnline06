@@ -177,7 +177,7 @@ error que se ha producido.*/
                     String marca = (leerCadena("Introduzca marca del vehículo: ")).toUpperCase();
                     String modelo = (leerCadena("Introduce modelo del vehículo: ")).toUpperCase();
                     int cilindrada = leerEntero("Introduce cilindrada del vehículo: ");
-                    int seleccion = leerEntero(1, 2, "Seleccione tipo de vehículo.\n1.Mercancias.\n2.Turismo.");
+                    int seleccion = leerEntero(1, 2, "Seleccione tipo de vehículo.\n1.Mercancias.\n2.Turismo.\n");
 
                     if (seleccion == 1) {
 
@@ -185,7 +185,7 @@ error que se ha producido.*/
                         int volumen = leerEntero("Introduzca volumen: ");
                         boolean refrigerado = leerBoolean("Vehículo refrigerado S/N");
 
-                        int posicion = leerEntero(1, 3, "Seleccione un tamaño:\n1.Grande\n2.Mediano\n3.Pequeño");
+                        int posicion = leerEntero(1, 3, "Seleccione tamaño del vehículo:\n1.Grande.\n2.Mediano.\n3.Pequeño.\n");
 
                         Tamanio tamanio = Tamanio.values()[posicion - 1];
 
@@ -199,27 +199,27 @@ error que se ha producido.*/
                                            
                         int numPuertas=leerEntero(3, 5, "Va a añadir un turismo.\nIntroduzca número de puertas:");
                         
-                        int posicion = leerEntero(1, 4, "Seleccione tipo de combustible:\n1.Gasolina.\n2.Diesel.\n3.Híbrido.\n4.Eléctrico.");
+                        int posicion = leerEntero(1, 4, "Seleccione tipo de combustible:\n1.Gasolina.\n2.Diesel.\n3.Híbrido.\n4.Eléctrico.\n");
                         
                         Combustible combustible = Combustible.values()[posicion-1];
                        
-                        seleccion = leerEntero(1, 2, "Escoja tipo de turismo:\n1.Familiar.\n2.Deportivo");
+                        seleccion = leerEntero(1, 2, "Seleccione tipo de turismo:\n1.Familiar.\n2.Deportivo.\n");
                         
                         if (seleccion==1){
-                            escribir("Ha escogido añadir un familiar.");
+                            escribirLn("Ha escogido añadir un familiar.");
                             
-                            int numPlazas = leerEntero(4, 7, "Elija el número de plazas entre 4 y 7.");
+                            int numPlazas = leerEntero(4, 7, "Seleccione el número de plazas entre 4 y 7.\n");
                             
-                            boolean sillaBebe = leerBoolean("¿Tiene silla de bebe? S/N");
+                            boolean sillaBebe = leerBoolean("¿Tiene silla de bebe? S/N\n");
                             
                             Familiar familiar = new Familiar(matricula, marca, modelo, cilindrada, numPuertas, combustible, numPlazas, sillaBebe);
                             
                         }else{
-                            escribir("Ha escogido añadir un deportivo");
+                            escribirLn("Ha escogido añadir un deportivo\n");
                             
-                            boolean descapotable = leerBoolean("¿Deportivo descapotable? S/N");
+                            boolean descapotable = leerBoolean("¿Deportivo descapotable? S/N\n");
                             
-                            int opcion = leerEntero(1, 2, "Seleccione tipo de caja de cambios: \n1.Automático.\n2.Manual.");
+                            int opcion = leerEntero(1, 2, "Seleccione tipo de caja de cambios: \n1.Automático.\n2.Manual.\n");
                             
                             CajaCambios cambio = CajaCambios.values()[opcion-1];
                             
@@ -259,6 +259,7 @@ error que se ha producido.*/
         if (pos == -1) {
             escribirLn("********************ATENCION********************");
             escribirLn("Matricula no registrada.");
+            escribirLn("------------------------------------------------\n");
         } else {
             escribirLn("Vehiculo borrado correctamente.");
             escribirLn("------------------------------------------------\n");
@@ -566,33 +567,39 @@ alquiler y lo añada al array de alquileres. Para ello se debe comprobar que el 
                                 }
 
                                 if (!value) {
-                                    escribir("no hay espacio en la memoria para nuevos alquileres.");
+                                    escribirLn("no hay espacio en la memoria para nuevos alquileres.");
                                 } else {
-                                    escribir("Alquiler registrado correctamente");
+                                    escribirLn("Alquiler registrado correctamente");
                                 }//FIN
 
                             } else {
-                                escribir("El vehiculo no está disponible en este momento.");
+                                 escribirLn("********************ATENCION********************");
+                                escribirLn("El vehiculo no está disponible en este momento.");
                             }
 
                         } else {
+                             escribirLn("********************ATENCION********************");
                             System.out.println("El vehículo no está registrado.");
                         }
 
                     } else {
+                         escribirLn("********************ATENCION********************");
                         System.out.println("Formato de matrícula incorrecto.");
                     }
 
                 } else {
-                    escribir("No hay ningún cliente registro con el Dni/Nie proporciado");
+                     escribirLn("********************ATENCION********************");
+                    escribirLn("No hay ningún cliente registro con el Dni/Nie proporciado");
                 }
 
             } else {
-                escribir("Letra del Dni/Nie incorrecto.");
+                 escribirLn("********************ATENCION********************");
+                escribirLn("Letra del Dni/Nie incorrecto.");
             }
 
         } else {
-            escribir("Formato de DNI incorrecto");
+             escribirLn("********************ATENCION********************");
+            escribirLn("Formato de DNI incorrecto");
         }
 
     }
@@ -654,33 +661,40 @@ alquiler y lo añada al array de alquileres. Para ello se debe comprobar que el 
                                 }
 
                                 if (!value) {
+                                     escribirLn("********************ATENCION********************");
                                     escribir("No hay alquileres que contengan el cliente y el vehiculo indicado.");
                                 } else {
-                                    escribir("Alquiler cerrado correctamente");
+                                    escribirLn("Alquiler cerrado correctamente");
                                 }//FIN
 
                             } else {
-                                escribir("El vehiculo no está en alquiler.");
+                                 escribirLn("********************ATENCION********************");
+                                escribirLn("El vehiculo no está en alquiler.");
                             }
 
                         } else {
+                             escribirLn("********************ATENCION********************");
                             System.out.println("El vehículo no está registrado.");
                         }
 
                     } else {
+                         escribirLn("********************ATENCION********************");
                         System.out.println("Formato de matrícula incorrecto.");
                     }
 
                 } else {
-                    escribir("No hay ningún cliente registro con el Dni/Nie proporciado");
+                     escribirLn("********************ATENCION********************");
+                    escribirLn("No hay ningún cliente registro con el Dni/Nie proporciado");
                 }
 
             } else {
-                escribir("Letra del Dni/Nie incorrecto.");
+                 escribirLn("********************ATENCION********************");
+                escribirLn("Letra del Dni/Nie incorrecto.");
             }
 
         } else {
-            escribir("Formato de DNI incorrecto");
+            escribirLn("********************ATENCION********************");
+            escribirLn("Formato de DNI incorrecto");
         }
 
     }
@@ -696,7 +710,8 @@ alquiler y lo añada al array de alquileres. Para ello se debe comprobar que el 
 
         }
         if (vacio) {
-            escribir("No existen alquileres");
+            escribirLn("********************ATENCION********************");
+            escribirLn("No hay alquileres registrados");
         }
     }
 }
